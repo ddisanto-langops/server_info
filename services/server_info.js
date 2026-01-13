@@ -35,7 +35,7 @@ const getSystemStats = () => {
   }
 
   try {
-    const command_result = execSync("upsc cyberpower ups.status").trim();
+    const command_result = execSync("upsc cyberpower ups.status 2>/dev/null");
     switch (command_result) {
       
       case command_result == 'OL':
