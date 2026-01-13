@@ -7,7 +7,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #131329;
+  background-color: #0d0d1d;
   padding-top: 5px;
 }
 
@@ -19,7 +19,7 @@ body {
 
 h1 {
   margin-top: 5px;
-  color: #279eb3;
+  color: #a1f5ba;
 }
 
 .vitals-container {
@@ -38,12 +38,12 @@ h1 {
   text-align: center;
   padding: 1.5rem;
   overflow: hidden;
-  color: #678ee4;
+  color: #62b3d3;
   font-size: medium;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 100;
   border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 2px 2px 2px #279eb3;
+  box-shadow: 2px 2px 2px #155f55;
   border-radius: 10px;
 }
 
