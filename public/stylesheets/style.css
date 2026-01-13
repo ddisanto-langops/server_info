@@ -29,22 +29,22 @@ h1 {
   align-items: center;
   text-align: center;
   padding: 1.5rem;
-  overflow: hidden;
+  overflow: auto;
   color: #678ee4;
   font-size: medium;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 100;
   height: fit-content;
+  width: fit-content;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 2px 2px 2px #279eb3;
   border-radius: 10px;
 }
 
 .stat-value {
-  font-size: 4rem;
+  font-size: 3rem;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
   color: aquamarine;
