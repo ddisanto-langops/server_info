@@ -36,7 +36,7 @@ async function updateDashboard() {
 
         const upsStatus = document.getElementById('ups-status');
         if (upsStatus) {
-            upsStatus.innerText = server_data.ups_status
+            upsStatus.innerText = server_data.ups_power_status
         }
 
     } catch (error) {
