@@ -39,23 +39,23 @@ const getSystemStats = () => {
     console.log(command_result)
     switch (command_result) {
       
-      case command_result == 'OL':
-        upsPowerStatus = "On Mains"
+      case 'OL':
+        upsPowerStatus = "Normal"
         break;
       
-      case command_result == 'OB':
+      case 'OB':
         upsPowerStatus = "On Battery"
         break;
       
-      case command_result == 'OB LB':
+      case 'OB LB':
         upsPowerStatus = "Battery Low"
         break;
       
-      case command_result == 'LB':
+      case 'LB':
         upsPowerStatus = "Battery Low"
         break;
       
-      case command_result == 'FSD':
+      case 'FSD':
         upsPowerStatus = "UPS Commanded Shutdown"
         break;
     
