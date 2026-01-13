@@ -74,7 +74,7 @@ const getSystemStats = () => {
     disk: diskSpace,
     ups_input_volts: upsInputVolts + 'v',
     ups_output_volts: upsOutputVolts + 'v',
-    ups_runtime: upsRuntime.toFixed(1) + 'minutes',
+    ups_runtime: upsRuntime.toFixed(1) + ' minutes',
     ups_power_status: upsPowerStatus
 
   };
