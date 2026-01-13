@@ -5,17 +5,24 @@
     <meta charset="utf-8">
     <title>LangOps-CA Server Status</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<body>
     <div class="title-div">
         <h1 class="title">LangOps-CA Server Status</h1>
     </div>
-    <div id="uptime"></div>
+</head>
+<body>
     <div class="vitals-container">
-        <div id="memory"></div>
-        <div id="uptime"></div>
-        <div id="disk"></div>
+        <div id="memory">
+            <h2>MEMORY USAGE</h2>
+            <p id="memory-value"></p>
+        </div>
+        <div id="uptime">
+            <h2>UPTIME</h2>
+            <p id="uptime-value"></p>
+        </div>
+        <div id="disk">
+            <h2>DISK USAGE</h2>
+            <p id="disk-value"></p>
+        </div>
     </div>
 
     <script src="index.js"></script>

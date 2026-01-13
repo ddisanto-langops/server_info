@@ -3,20 +3,20 @@ async function updateDashboard() {
         const response = await fetch('/status');
         const server_data = await response.json();
 
-        const memoryDisplay = document.getElementById('memory');
+        const memoryDisplay = document.getElementById('memory-value');
         if (memoryDisplay) {
-            memoryDisplay.innerText = `RAM Usage: ${server_data.memory}`
+            memoryDisplay.innerText = server_data.memory
 
         }
 
-        const uptimeDisplay = document.getElementById('uptime');
+        const uptimeDisplay = document.getElementById('uptime-value');
         if (uptimeDisplay) {
-            uptimeDisplay.innerText = `Uptime: ${server_data.uptime}`
+            uptimeDisplay.innerText = server_data.uptime
         }
 
-        const diskUsageDisplay = document.getElementById('disk');
+        const diskUsageDisplay = document.getElementById('disk-value');
         if (diskUsageDisplay) {
-            diskUsageDisplay.innerText = `Disk Usage: ${server_data.disk}`
+            diskUsageDisplay.innerText = server_data.disk
         }
 
     } catch (error) {
