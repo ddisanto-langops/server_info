@@ -1,6 +1,33 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1e72fa;
+}
+
+.title-div {
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+}
+
+.vitals-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, auto);
+}
+
+#temperature {
+  color: seagreen;
+  font-size: x-large;
+}
+
+#memory {
+  color: seagreen;
+  font-size: x-large;
+}
+
+#etc {
+  font-size: x-large;
 }
 
 a {
