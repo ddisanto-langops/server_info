@@ -47,6 +47,10 @@ const getSystemStats = () => {
         upsPowerStatus = "On Battery"
         break;
       
+      case 'OB DISCHRG':
+        upsPowerStatus = "On Battery"
+        break;
+      
       case 'OB LB':
         upsPowerStatus = "Battery Low"
         break;
