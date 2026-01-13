@@ -29,12 +29,12 @@ async function updateDashboard() {
             upsOutputVolts.innerText = server_data.ups_output_volts
         }
 
-        const upsRuntime = document.getElementById('ups-runtime');
+        const upsRuntime = document.getElementById('ups-runtime-value');
         if (upsRuntime) {
             upsRuntime.innerText = server_data.ups_runtime
         }
 
-        const upsStatus = document.getElementById('ups-status');
+        const upsStatus = document.getElementById('ups-status-value');
         if (upsStatus) {
             upsStatus.innerText = server_data.ups_power_status
         }
