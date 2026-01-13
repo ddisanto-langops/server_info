@@ -1,6 +1,14 @@
+/* 
+Overview for future reference:
+This fetches the data from the service defined in /services/server_info.js
+In /routes/index.js, the /status endpoint is defined with the router. 
+in /routes/index.js, require the service, in this case, the server info: server = require('../services/server_info')
+Then, call the function: server.getSystemStats() within the router.get() function and return server data as JSON.
+        
+*/
+
 async function updateDashboard() {
     try {
-        // The fetch 
         const response = await fetch('/status');
         const server_data = await response.json();
 
@@ -39,7 +47,7 @@ async function updateDashboard() {
         if (upsStatus) {
             upsStatus.innerText = server_data.ups_power_status
         }
-        // This card's value can change color if UPS is on battery
+        // The UPS status card's class can be toggled to show if UPS is on battery
         const onBattery = server_data.ups_power_status === "On Battery" || server_data.ups_power_status === "Battery Low";
         upsStatus.classList.toggle('status-warn', onBattery);
  
