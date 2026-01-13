@@ -29,7 +29,7 @@ const getSystemStats = () => {
   }
 
   try {
-    upsRuntime = execSync("upsc cyberpower battery.runtime")
+    upsRuntime = Number(execSync("upsc cyberpower battery.runtime")) / 60
   } catch (error) {
     console.error(`NUT UPS unreachable: ${error}`)
   }
