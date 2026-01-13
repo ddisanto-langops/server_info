@@ -1,5 +1,6 @@
 async function updateDashboard() {
     try {
+        // The fetch 
         const response = await fetch('/status');
         const server_data = await response.json();
 
@@ -38,6 +39,10 @@ async function updateDashboard() {
         if (upsStatus) {
             upsStatus.innerText = server_data.ups_power_status
         }
+        // This card's value can change color if UPS is on battery
+        const onBattery = server_data.ups_power_status === "On Battery" || server_data.ups_power_status === "Battery Low";
+        upsStatus.classList.toggle('status-warn', onBattery);
+ 
 
     } catch (error) {
         console.error(`Could not reach server logic script: ${error}`)
