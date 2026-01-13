@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #1a1a2e;
+  background-color: #131329;
   padding-top: 5px;
 }
 
@@ -18,15 +18,23 @@ h1 {
 
 .vitals-container {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto, minmax(200px, 1fr));
-  grid-template-rows: 1fr
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-#memory {
-  color: #2c637c;
+.stat-card {
+  color: #678ee4;
   font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 100;
   height: fit-content;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 2px 2px 2px #279eb3;
+  border-radius: 10px;
+  justify-content: center;
+  justify-items: center;
+  
 }
 
 #memory-value {
@@ -36,23 +44,13 @@ h1 {
   color: rgb(0, 128, 85);
 }
 
-#uptime {
-  color: #2c637c;
-  font-size: medium;
-  height: fit-content;
-}
+
 
 #uptime-value {
   font-size: x-large;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
   color: rgb(0, 128, 85);
-}
-
-#disk {
-  color: #2c637c;
-  font-size: medium;
-  height: fit-content;
 }
 
 #disk-value {
