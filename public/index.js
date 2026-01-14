@@ -12,10 +12,13 @@ async function updateDashboard() {
         const response = await fetch('/status');
         const server_data = await response.json();
 
+        // System load allows for warning format if === "High"
         const systemLoad = document.getElementById('system-load-value');
         if (systemLoad) {
             systemLoad.innerText = server_data.system_load
         }
+        const highLoad = server_data.system_load === "High"
+        systemLoad.classList.toggle('status-warn', highLoad);
 
         const memoryDisplay = document.getElementById('memory-value');
         if (memoryDisplay) {
