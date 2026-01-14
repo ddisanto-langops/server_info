@@ -9,6 +9,16 @@ const getSystemStats = () => {
   const freeMemory = os.freemem();
   const totalMemory = os.totalmem();
   const diskSpace = execSync("df / --output=pcent | tail -1").toString().trim();
+  
+  // Calculate system load against number of CPUs and return text status
+  const cpuCount = os.cpus().length;
+  const load = os.loadavg()[0];
+  let systemLoad;
+  if (load > cpuCount) {
+    systemLoad = "High"
+  } else {
+    systemLoad = "Normal"
+  }
 
   // UPS status defaults to null in case NUT malfunctions
   let upsInputVolts = null;
@@ -79,7 +89,8 @@ const getSystemStats = () => {
     ups_input_volts: upsInputVolts + 'v',
     ups_output_volts: upsOutputVolts + 'v',
     ups_runtime: upsRuntime.toFixed(1) + ' minutes',
-    ups_power_status: upsPowerStatus
+    ups_power_status: upsPowerStatus,
+    system_load: systemLoad
 
   };
 };
