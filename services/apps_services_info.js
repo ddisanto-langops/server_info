@@ -16,10 +16,10 @@ module.exports = {
     getServiceStatus: () => {
         const apps = {
             "Fail2Ban": "fail2ban.service",
-            "NUT UPS Server": "nut-server.service",
-            "NUT UPS Monitor": "nut-monitor.service",
-            "Automate Labels": "automate-labels.service",
-            "LangOps Dashboard": "langops_dashboard.service"
+            "NUT-UPS-Server": "nut-server.service",
+            "NUT-UPS-Monitor": "nut-monitor.service",
+            "Automate-Labels": "automate-labels.service",
+            "LangOps-Dashboard": "langops_dashboard.service"
         };
 
         return Object.keys(apps).map(friendlyName => ({
