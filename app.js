@@ -28,7 +28,6 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-// error handler
 app.use((err, req, res, next) => {
     console.error("ERROR:", err.message);
     // If it's a 404, just send the status. If it's a 500, send the message.

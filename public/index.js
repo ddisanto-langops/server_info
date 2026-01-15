@@ -77,7 +77,7 @@ async function initializeSidebar() {
         service_div.id = `${service.name}`
         service_div.innerHTML = `
         <div class="service-name">${service.name}</div>
-        <div class="service-status" id="status-${service.name}">Checking...</div>
+        <div class="service-status">Checking...</div>
         `;
         sidebar.appendChild(service_div)
     });
