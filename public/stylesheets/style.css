@@ -43,6 +43,13 @@ h1 {
   padding: 10px;
 }
 
+.service-list-item {
+  box-shadow: 0 0 5px 5px #417a7a;
+  border-radius: 8px;
+  padding: 3px;
+  margin: 20px
+}
+
 .service-name {
   font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #62b3d3;
