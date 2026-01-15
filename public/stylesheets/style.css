@@ -39,16 +39,7 @@ h1 {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-.app-listing {
-  padding: 10px;
-}
-
-.app-name {
-  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #62b3d3;
-}
-
-.services-listing {
+.services-list {
   padding: 10px;
 }
 

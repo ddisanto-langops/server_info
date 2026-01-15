@@ -1,6 +1,6 @@
 /* 
 Overview for future reference:
-This fetches the data from the service defined in /services/server_info.js
+This fetches the data from the service(s) defined in /services
 In /routes/index.js, the /status endpoint is defined with the router. 
 in /routes/index.js, require the service, in this case, the server info: server = require('../services/server_info')
 Then, call the function: server.getSystemStats() within the router.get() function and return server data as JSON.
@@ -65,5 +65,25 @@ async function updateDashboard() {
     }
 }
 
+async function updateSidebar() {
+    const response = await fetch('/services');
+    const services_data = await response.json();
+
+    const sidebar = document.getElementById('services-list');
+    sidebar.innerHTML = '';
+    services_data.array.forEach(service => {
+        const service_div = document.createElement('div');
+        service_div.className = 'service-list-item'
+        service_div.id = `${service.name}`
+        service_div.innerHTML = `
+        <div class="service-name">${service.name}</div>
+        <div class="service-status" id="status-${service.status}">Checking...</div>
+        `;
+        sidebar.appendChild(service_div)
+    });
+}
+
 updateDashboard();
+updateSidebar();
 setInterval(updateDashboard, 10000);
+setInterval(updateSidebar, 10000);
