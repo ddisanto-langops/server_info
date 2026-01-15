@@ -23,3 +23,5 @@ const report = Object.keys(services).map(friendlyName => {
         status: getServiceStatus(services[friendlyName])
     };
 });
+
+console.log(report)
