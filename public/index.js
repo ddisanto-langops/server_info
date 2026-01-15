@@ -71,7 +71,7 @@ async function updateSidebar() {
 
     const sidebar = document.getElementById('services-list');
     sidebar.innerHTML = '';
-    services_data.array.forEach(service => {
+    services_data.forEach(service => {
         const service_div = document.createElement('div');
         service_div.className = 'service-list-item'
         service_div.id = `${service.name}`
