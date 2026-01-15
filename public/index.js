@@ -104,6 +104,18 @@ initializeSidebar().then(() => {
     setInterval(updateSidebarStatuses, 10000);
 });
 
-updateDashboard();
-updateSidebarStatuses();
-setInterval(updateDashboard, 10000);
+async function startApp() {
+    // 1. First, build the sidebar structure
+    await initializeSidebar();
+
+    // 2. Immediately fill the dashboard and sidebar with real data
+    updateDashboard();
+    updateSidebarStatuses();
+
+    // 3. Set timers to refresh that data every 10 seconds
+    setInterval(updateDashboard, 10000);
+    setInterval(updateSidebarStatuses, 10000);
+}
+
+// Start everything
+startApp();
