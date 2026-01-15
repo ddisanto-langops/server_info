@@ -77,7 +77,7 @@ async function initializeSidebar() {
         service_div.id = `${service.name}`
         service_div.innerHTML = `
         <div class="service-name">${service.name}</div>
-        <div class="service-status" id="${service.name}">Checking...</div>
+        <div class="service-status" id="${service.name}-status">Checking...</div>
         `;
         sidebar.appendChild(service_div)
     });
@@ -89,11 +89,11 @@ async function updateSidebarStatuses() {
         const services_data = await response.json();
 
         services_data.forEach(service => {
-            const statusEl = document.getElementById(`status-val-${service.name}`);
-            if (statusEl) {
-                statusEl.innerText = service.status;
+            const statusElement = document.getElementById(`${service.name}-status`);
+            if (statusElement) {
+                statusElement.innerText = service.status;
                 // Add color coding
-                statusEl.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
+                statusElement.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
             }
         });
     } catch (e) { console.error("Status update failed", e); }
