@@ -1,2 +1,7 @@
 # server_info
-Small proof-of-concept Typescript server app
+
+## Description
+Small proof-of-concept server app giving info about vitals and services. Uses Node.js and Express.js.
+
+## Timeline
+Ongoing as more apps are added.
