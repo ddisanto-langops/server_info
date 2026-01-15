@@ -1,3 +1,18 @@
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('is-active')
+        });
+    }
+});
+
+
+
+
 /* 
 Overview for future reference:
 This fetches the data from the service(s) defined in /services
@@ -94,6 +109,8 @@ async function updateSidebarStatuses() {
                 statusElement.innerText = service.status;
                 // Add color coding
                 statusElement.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
+                const inactive = service.status != 'active';
+                statusElement.classList.toggle('service-warn', inactive);
             }
         });
     } catch (e) { console.error("Status update failed", e); }

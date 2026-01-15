@@ -21,6 +21,17 @@ h1 {
   color: #a1f5ba;
 }
 
+.menu-toggle {
+    display: none;
+    padding: 10px 20px;
+    margin: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .layout-wrapper {
   display: flex;
   align-items: flex-start;
@@ -104,9 +115,21 @@ h1 {
   text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
 }
 
+.service-warn {
+  box-shadow: 0 0 5px 5px #f56969;
+}
 
 
-@media (max-width: 1080px) {
+
+@media (max-width: 768px) {
+
+  .layout-wrapper {
+    flex-direction: column;
+  }
+
+  .vitals-container {
+        grid-template-columns: 1fr; 
+    }
 
   .stat-card {
   min-height: 100px;
@@ -117,4 +140,18 @@ h1 {
   .stat-value {
   font-size: clamp(0.5rem, 4vw, 2rem);
   }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    display: none;
+  }
+
+  .sidebar.is-active {
+    display: block;
+  }
+  
+  .menu-toggle {
+        display: block;
+    }
 }
