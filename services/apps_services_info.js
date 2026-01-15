@@ -2,26 +2,29 @@ const { execSync } = require('child_process');
 
 function getServiceStatus(serviceName) {
     try {
-        const status = execSync(`sudo systemctl is-active ${serviceName}`).toString().trim();
-        return status;
+        // Must use sudo and trim the result
+        return execSync(`sudo systemctl is-active ${serviceName}`).toString().trim();
     } catch (error) {
-        return error.stdout ? error.stdout.toString().trim() : 'inactive';
+        // If it's inactive, systemctl returns exit code 3. 
+        // Node sees that as an error, so we catch it here.
+        if (error.stdout) return error.stdout.toString().trim();
+        return 'inactive';
     }
 }
 
-const services = {
-    "Fail2Ban": "fail2ban.service",
-    "NUT UPS Server": "nut-server.service",
-    "NUT UPS Monitor": "nut-monitor.service",
-    "Automate Labels": "automate-labels.service",
-    "LangOps Dashboard": "langops_dashboard.service"
-}
+module.exports = {
+    getServiceStatus: () => {
+        const apps = {
+            "Fail2Ban": "fail2ban.service",
+            "NUT UPS Server": "nut-server.service",
+            "NUT UPS Monitor": "nut-monitor.service",
+            "Automate Labels": "automate-labels.service",
+            "LangOps Dashboard": "langops_dashboard.service"
+        };
 
-const report = Object.keys(services).map(friendlyName => {
-    return {
-        name: friendlyName,
-        status: getServiceStatus(services[friendlyName])
-    };
-});
-
-console.log(report)
+        return Object.keys(apps).map(friendlyName => ({
+            name: friendlyName,
+            status: getServiceStatus(apps[friendlyName])
+        }));
+    }
+};
