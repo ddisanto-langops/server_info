@@ -10,18 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
-
 /* 
 Overview for future reference:
 This fetches the data from the service(s) defined in /services
 In /routes/index.js, the /status endpoint is defined with the router. 
 in /routes/index.js, require the service, in this case, the server info: server = require('../services/server_info')
-Then, call the function: server.getSystemStats() within the router.get() function and return server data as JSON.
-        
+Then, call the function: server.getSystemStats() within the router.get() function and return server data as JSON.       
 */
-
 async function updateDashboard() {
     try {
         const response = await fetch('/status');
@@ -104,13 +99,15 @@ async function updateSidebarStatuses() {
         const services_data = await response.json();
 
         services_data.forEach(service => {
+            const statusBox = document.getElementById(`${service.name}`);
+            const inactive = service.status != 'active';
+            statusBox.classList.toggle('service-warn', inactive);
+
             const statusElement = document.getElementById(`${service.name}-status`);
             if (statusElement) {
                 statusElement.innerText = service.status;
                 // Add color coding
                 statusElement.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
-                const inactive = service.status != 'active';
-                statusElement.classList.toggle('service-warn', inactive);
             }
         });
     } catch (e) { console.error("Status update failed", e); }
