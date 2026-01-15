@@ -65,7 +65,7 @@ async function updateDashboard() {
     }
 }
 
-async function updateSidebar() {
+async function initializeSidebar() {
     const response = await fetch('/services');
     const services_data = await response.json();
 
@@ -77,13 +77,33 @@ async function updateSidebar() {
         service_div.id = `${service.name}`
         service_div.innerHTML = `
         <div class="service-name">${service.name}</div>
-        <div class="service-status" id="status-${service.status}">Checking...</div>
+        <div class="service-status" id="status-${service.name}">Checking...</div>
         `;
         sidebar.appendChild(service_div)
     });
 }
 
+async function updateSidebarStatuses() {
+    try {
+        const response = await fetch('/services');
+        const services_data = await response.json();
+
+        services_data.forEach(service => {
+            const statusEl = document.getElementById(`status-val-${service.name}`);
+            if (statusEl) {
+                statusEl.innerText = service.status;
+                // Add color coding
+                statusEl.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
+            }
+        });
+    } catch (e) { console.error("Status update failed", e); }
+}
+
+
+initializeSidebar().then(() => {
+    setInterval(updateSidebarStatuses, 10000);
+});
+
 updateDashboard();
-updateSidebar();
+updateSidebarStatuses();
 setInterval(updateDashboard, 10000);
-setInterval(updateSidebar, 10000);
