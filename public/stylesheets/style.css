@@ -21,8 +21,50 @@ h1 {
   color: #a1f5ba;
 }
 
+.layout-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20xp;
+  padding: 20px 20px 20px 5px;
+}
+
+.sidebar {
+  width: 25%;
+  height: 100vh;
+  margin-top: 20px;
+  padding: 10px;
+  position: sticky;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #0a1036;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.app-listing {
+  padding: 10px;
+}
+
+.app-name {
+  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #62b3d3;
+}
+
+.services-listing {
+  padding: 10px;
+}
+
+.service-name {
+  font: 1.2rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #62b3d3;
+}
+
+.sidebar-header {
+  padding: 5px 5px 5px 0px;
+  color: #a1f5ba;
+}
+
 .vitals-container {
   display: grid;
+  width: 100vw;
   gap: 20px;
   padding: 20px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

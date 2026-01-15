@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    <meta charset="utf-8">
-    <title>LangOps-CA Server Status</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div class="title-div">
-        <h1 class="title">LangOps-CA Server Status</h1>
-    </div>
-</head>
-<body>
-    <div class="vitals-container">
-        <div id="system-load" class="stat-card">
-            <h2>SYSTEM LOAD</h2>
-            <p class="stat-value" id="system-load-value"></p>
+    <head>
+        <link rel="stylesheet" href="./stylesheets/style.css">
+        <meta charset="utf-8">
+        <title>LangOps-CA Server Status</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <div class="title-div">
+            <h1 class="title">LangOps-CA Server Status</h1>
         </div>
-        <div id="uptime" class="stat-card">
-            <h2>UPTIME</h2>
-            <p class="stat-value" id="uptime-value"></p>
-        </div>
-        <div id="memory" class="stat-card">
-            <h2>MEMORY USAGE</h2>
-            <p class="stat-value" id="memory-value"></p>
-        </div>
-        <div id="disk" class="stat-card">
-            <h2>DISK USAGE</h2>
-            <p class="stat-value" id="disk-value"></p>
-        </div>
-        <div id="ups-status" class="stat-card">
-            <h2>UPS STATUS</h2>
-            <p class="stat-value" id="ups-status-value"></p>
-        </div>
-        <div id="ups-runtime" class="stat-card">
-            <h2>UPS RUNTIME</h2>
-            <p class="stat-value" id="ups-runtime-value"></p>
-        </div>
-        <div id="ups-input-volts" class="stat-card">
-            <h2>UPS INPUT</h2>
-            <p class="stat-value" id="input-volts-value"></p>
-        </div>
-        <div id="ups-output-volts" class="stat-card">
-            <h2>UPS OUTPUT</h2>
-            <p class="stat-value" id="output-volts-value"></p>
-        </div>
-    </div>
+        
+        <div class="layout-wrapper"> 
+            
+            <aside class="sidebar">
+                <div class="app-listing" id="automate-labels-listing">
+                    <h2 class="sidebar-header">APPS</h2>
+                    <div class="app-name">Automate Labels</div>
+                    <div class="app-name">LangOps Dashboard</div>
+                </div>
+                <div class="services-listing">
+                    <h2 class="sidebar-header">SERVICES</h2>
+                    <div class="service-name">NUT UPS</div>
+                    <div class="service-name">Fail2Ban</div>
+                    <div class="service-name">Etc.</div>
+                </div>
+            </aside>
 
-    <script src="index.js"></script>
-</body>
+            <main class="vitals-container">
+                <div id="system-load" class="stat-card">
+                    <h2>SYSTEM LOAD</h2>
+                    <p class="stat-value" id="system-load-value"></p>
+                </div>
+                <div id="uptime" class="stat-card">
+                    <h2>UPTIME</h2>
+                    <p class="stat-value" id="uptime-value"></p>
+                </div>
+                <div id="memory" class="stat-card">
+                    <h2>MEMORY USAGE</h2>
+                    <p class="stat-value" id="memory-value"></p>
+                </div>
+                <div id="disk" class="stat-card">
+                    <h2>DISK USAGE</h2>
+                    <p class="stat-value" id="disk-value"></p>
+                </div>
+                <div id="ups-status" class="stat-card">
+                    <h2>UPS STATUS</h2>
+                    <p class="stat-value" id="ups-status-value"></p>
+                </div>
+                <div id="ups-runtime" class="stat-card">
+                    <h2>UPS RUNTIME</h2>
+                    <p class="stat-value" id="ups-runtime-value"></p>
+                </div>
+                <div id="ups-input-volts" class="stat-card">
+                    <h2>UPS INPUT</h2>
+                    <p class="stat-value" id="input-volts-value"></p>
+                </div>
+                <div id="ups-output-volts" class="stat-card">
+                    <h2>UPS OUTPUT</h2>
+                    <p class="stat-value" id="output-volts-value"></p>
+                </div>
+            </main>
+        </div>
+        <script src="index.js"></script>
+    </body>
 </html>
