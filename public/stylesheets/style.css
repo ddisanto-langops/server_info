@@ -22,14 +22,15 @@ h1 {
 }
 
 .menu-toggle {
-    display: none;
-    padding: 10px 20px;
-    margin: 10px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  display: none;
+  padding: 10px 20px;
+  margin: 10px;
+  background: #2d5772;
+  color: white;
+  border: 0.5px solid #62b3d3;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .layout-wrapper {
