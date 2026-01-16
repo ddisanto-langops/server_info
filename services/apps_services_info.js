@@ -14,17 +14,18 @@ function getServiceStatus(serviceName) {
 
 module.exports = {
     getServiceStatus: () => {
-        const apps = {
-            "Fail2Ban": "fail2ban.service",
-            "NUT-UPS-Server": "nut-server.service",
-            "NUT-UPS-Monitor": "nut-monitor.service",
-            "Automate-Labels": "automate-labels.service",
-            "LangOps-Dashboard": "langops_dashboard.service"
-        };
+        const apps = [
+            { id: "fail2ban", display: "Fail2Ban", service: "fail2ban.service" },
+            { id: "nut-ups-server", display: "NUT UPS Server", service: "nut-server.service" },
+            { id: "nut-ups-monitor", display: "NUT UPS Monitor", service: "nut-monitor.service" },
+            { id: "automate-labels", display: "Automate Labels", service: "automate-labels.service" },
+            { id: "langops-dashboard", display: "LangOps Dashboard", service: "langops_dashboard.service" }
+        ];
 
-        return Object.keys(apps).map(friendlyName => ({
-            name: friendlyName,
-            status: getServiceStatus(apps[friendlyName])
+        return apps.map(app => ({
+            id: app.id,
+            name: app.display,
+            status: getServiceStatus(app.service)
         }));
     }
 };

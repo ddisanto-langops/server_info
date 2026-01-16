@@ -93,12 +93,12 @@ async function initializeSidebar() {
     services_data.forEach(service => {
         const service_div = document.createElement('div');
         service_div.className = 'service-list-item'
-        service_div.id = `${service.name}`
+        service_div.id = `${service.id}`
         service_div.innerHTML = `
         <div class="service-name">${service.name}</div>
         <div class="service-container">
-            <div class="status-button" id="${service.name}-status-button"></div>
-            <div class="service-status" id="${service.name}-status">Checking...</div>
+            <div class="status-button" id="${service.id}-status-button"></div>
+            <div class="service-status" id="${service.id}-status">Checking...</div>
         </div>
         `;
         sidebar.appendChild(service_div)
@@ -113,16 +113,16 @@ async function updateSidebarStatuses() {
         services_data.forEach(service => {
             
             // Make the box glow red around the edges if service is down
-            const statusBox = document.getElementById(`${service.name}`);
+            const statusBox = document.getElementById(`${service.id}`);
             const inactive = service.status != 'active';
             statusBox.classList.toggle('service-warn', inactive);
 
             // change the status button color if service is down
-            const statusButton = document.getElementById(`${service.name}-status-button`)
+            const statusButton = document.getElementById(`${service.id}-status-button`)
             statusButton.classList.toggle('status-button-warn', inactive)
 
             // Set the status returned by the server
-            const statusElement = document.getElementById(`${service.name}-status`);
+            const statusElement = document.getElementById(`${service.id}-status`);
             if (statusElement) {
                 statusElement.innerText = service.status;
 
