@@ -39,6 +39,11 @@ h1 {
   padding: 20px 20px 20px 5px;
 }
 
+.sidebar-header {
+  padding: 5px 5px 5px 0px;
+  color: #a1f5ba;
+}
+
 .sidebar {
   width: 25%;
   height: 100vh;
@@ -57,6 +62,8 @@ h1 {
 .service-container {
   display: flex;
   flex-direction: row;
+  gap: 5px;
+  align-items: baseline;
 }
 
 .service-list-item {
@@ -71,11 +78,6 @@ h1 {
   color: #62b3d3;
   margin-bottom: 5px;
   margin-top: 5px;
-}
-
-.sidebar-header {
-  padding: 5px 5px 5px 0px;
-  color: #a1f5ba;
 }
 
 .vitals-container {
