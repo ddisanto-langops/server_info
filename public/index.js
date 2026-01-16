@@ -19,6 +19,7 @@ Then, call the function: server.getSystemStats() within the router.get() functio
 */
 async function updateDashboard() {
     try {
+        // see /routes/index.js for the defined routes query with fetch()
         const response = await fetch('/status');
         const server_data = await response.json();
 
@@ -65,7 +66,15 @@ async function updateDashboard() {
         if (upsStatus) {
             upsStatus.innerText = server_data.ups_power_status
         }
-        // The UPS status card's class can be toggled to show if UPS is on battery
+        // 
+        /*
+        The UPS status card's class can be toggled to show if UPS is on battery.
+        First set the CSS to target the desired class.
+        Then follow essentally this pattern:
+        1. Determine the element to modify using getElementById()
+        2. Set a condition which evaluates to true
+        3. use classList.toggle('css-class', condition)
+        */
         const onBattery = server_data.ups_power_status === "On Battery" || server_data.ups_power_status === "Battery Low";
         upsStatus.classList.toggle('status-warn', onBattery);
  
@@ -87,7 +96,10 @@ async function initializeSidebar() {
         service_div.id = `${service.name}`
         service_div.innerHTML = `
         <div class="service-name">${service.name}</div>
-        <div class="service-status" id="${service.name}-status">Checking...</div>
+        <div class="service-container">
+            <div class="status-button" id="${service.name}-status-button"></div>
+            <div class="service-status" id="${service.name}-status">Checking...</div>
+        </div>
         `;
         sidebar.appendChild(service_div)
     });
@@ -99,14 +111,22 @@ async function updateSidebarStatuses() {
         const services_data = await response.json();
 
         services_data.forEach(service => {
+            
+            // Make the box glow red around the edges if service is down
             const statusBox = document.getElementById(`${service.name}`);
             const inactive = service.status != 'active';
             statusBox.classList.toggle('service-warn', inactive);
 
+            // change the status button color if service is down
+            const statusButton = document.getElementById(`${service.name}-status-button`)
+            statusButton.classList.toggle('status-button-warn', inactive)
+
+            // Set the status returned by the server
             const statusElement = document.getElementById(`${service.name}-status`);
             if (statusElement) {
                 statusElement.innerText = service.status;
-                // Add color coding
+
+                // Determine color coding
                 statusElement.style.color = service.status === 'active' ? '#2ecc71' : '#e74c3c';
             }
         });
