@@ -133,11 +133,6 @@ async function updateSidebarStatuses() {
     } catch (e) { console.error("Status update failed", e); }
 }
 
-
-initializeSidebar().then(() => {
-    setInterval(updateSidebarStatuses, 10000);
-});
-
 async function startApp() {
     // 1. First, build the sidebar structure
     await initializeSidebar();
